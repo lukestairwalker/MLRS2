@@ -1,5 +1,5 @@
 # Environment Setup
-This guide will walk you through setting up your development environment on 
+This guide will walk you through setting up your development environment on
 Windows, Linux, and macOS. Please follow the instructions relevant to your operating system.
 
 ## Step 1: Install VSCode
@@ -15,19 +15,20 @@ Follow the instructions [here (Windows)](https://code.visualstudio.com/docs/setu
 On Ubuntu the easiest way to install VSCode is the build in Software manager "Ubuntu Software". You can search for "vscode" and install it from there.
 
 ## Step 2: Setting Up a Virtual Environment
-To manage Python packages for individual projects, it is best practice to use a virtual environment. 
+
+To manage Python packages for individual projects, it is best practice to use a virtual environment.
 Follow these steps to set up a virtual environment for your MLRS2 exercise in VSCode.
 
 ### Open the this Code in VSCode:
 
 1. **Launch VSCode**.
-2. Select **Open** on the Welcome screen or choose **File > Open...** from the main menu. 
-3. Navigate to the directory where you extracted your exercise files and select the folder. 
+2. Select **Open** on the Welcome screen or choose **File > Open...** from the main menu.
+3. Navigate to the directory where you extracted your exercise files and select the folder.
 4. Click **OK** to open the folder as a VSCode project.
 
 ### Create a Virtual Environment:
 
-1. Once the project is open in the IDE, open the Command Palette (`Ctrl+Shift+P`), search for the **Python: Create Environment** command, and select it. 
+1. Once the project is open in the IDE, open the Command Palette (`Ctrl+Shift+P`), search for the **Python: Create Environment** command, and select it.
 2. The command presents a list of environment types: **Venv** or **Conda**. Select **Venv**.
 3. Choose the base interpreter. Ensure you select Python 3.9 or higher (you should see it in the list as it should have been installed globally).
 4. You can select the requirements.txt file to install the dependencies automatically.
@@ -58,11 +59,11 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 ```
 
 ## Conclusion
-You're now set up with a complete development environment for our MLRS2 Exercise. 
+You're now set up with a complete development environment for our MLRS2 Exercise.
 If you encounter any issues, please review the steps to ensure all procedures were correctly followed or reach out for assistance.
 
 
-## Troubleshooting 
+## Troubleshooting
 
 You may encounter the following GLFW errors if running on machine without a display:
 
