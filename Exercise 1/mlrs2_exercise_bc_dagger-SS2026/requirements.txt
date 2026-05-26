@@ -1,0 +1,10 @@
+gymnasium[mujoco]
+tensorboard
+tensorboardX
+matplotlib
+ipython
+moviepy==1.0.3
+opencv-python
+ipdb
+swig
+numpy
