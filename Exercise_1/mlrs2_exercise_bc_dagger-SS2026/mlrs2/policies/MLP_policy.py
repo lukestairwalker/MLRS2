@@ -9,16 +9,11 @@ Functions to edit:
 import abc
 import itertools
 from typing import Any
-from torch import nn
-from torch.nn import functional as F
-from torch import optim
 
-import numpy as np
 import torch
-from torch import distributions
-
 from mlrs2.infrastructure import pytorch_util as ptu
 from mlrs2.policies.base_policy import BasePolicy
+from torch import nn, optim
 
 
 def build_mlp(
@@ -141,7 +136,7 @@ class MLPPolicySL(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
         :return:
             dict: 'Training Loss': supervised learning loss
         """
-        # TODO: update the policy and return the loss
+        # DONE: update the policy and return the loss
 
         self.optimizer.zero_grad()
 
@@ -149,8 +144,8 @@ class MLPPolicySL(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
 
 
         # Compute the negative log likelihood of the true actions under the predicted action distribution
-        loss =
-
+# Berechne den Fehler (MSE) zwischen Vorhersage und Experten-Aktion
+        loss = ptu.mean_squared_error(self(ob_batch), ac_batch)
         # Backward pass
 
 
