@@ -46,9 +46,11 @@ To manage Python packages for individual projects, it is best practice to use a 
     pip install -e.
     ```
 
-    installiert das lokale Projekt im "editierbaren" Modus, sodass Änderungen am Quellcode sofort ohne eine erneute Installation wirksam werden und das Paket systemweit innerhalb der virtuellen Umgebung importierbar ist.
-
     <details>
+     installiert das lokale Projekt im "editierbaren" Modus, sodass Änderungen am Quellcode sofort ohne eine erneute Installation wirksam werden und das Paket systemweit innerhalb der virtuellen Umgebung importierbar ist.
+
+     ---
+
     Stell dir vor, du hast ein Programm, das aus vielen kleinen Dateien besteht.
     Normalerweise, wenn du ein Paket installierst (pip install .), kopiert Python den Code in einen speziellen Ordner für installierte Bibliotheken. Wenn du dann etwas an deinem Code änderst, bemerkt Python das nicht, weil es mit der alten, kopierten Version arbeitet.
 
@@ -65,3 +67,26 @@ To manage Python packages for individual projects, it is best practice to use a 
     Ist der Unterschied zwischen dem "Kopieren" und der "Verknüpfung" so etwas verständlicher für dich?
 
     </details>
+
+## Installation of PyTorch
+
+1. Install PyTorch
+
+```bash
+pip install torch torchvision torchaudio
+```
+
+2. Check if PyTorch is installed
+
+```bash
+pip list
+```
+
+<details>
+  <summary>Details</summary>
+
+  1. Aktivieren: Stelle immer sicher, dass (.venv) vor deinem Prompt steht.
+  2. Installieren: Nutze dann deine pip-Befehle.
+  3. Überprüfen:  Wenn du dir unsicher bist, ob ein Paket in der Umgebung gelandet ist, gib einfach `pip list` ein. Dort siehst du eine Liste aller installierten Pakete nur für diese Umgebung.
+
+</details>
