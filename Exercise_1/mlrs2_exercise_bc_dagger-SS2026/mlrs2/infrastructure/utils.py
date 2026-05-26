@@ -6,11 +6,9 @@ Functions to edit:
 """
 
 from collections import OrderedDict
+
 import cv2
 import numpy as np
-import time
-
-from mlrs2.infrastructure import pytorch_util as ptu
 
 
 def sample_trajectory(env, policy, max_path_length, render=False):
@@ -32,16 +30,20 @@ def sample_trajectory(env, policy, max_path_length, render=False):
                 img = env.render()
             image_obs.append(cv2.resize(img, dsize=(250, 250), interpolation=cv2.INTER_CUBIC))
 
-        # TODO use the most recent ob to decide what to do
-        # HINT: ac needs to be a numpy array
-        ac =
+        # DONE: use the most recent ob to decide what to do
+        # Die Policy erwartet ein numpy-Array oder Tensor,
+        # get_action ist hier die Funktion, die das Netz durchläuft
+        ac = policy.get_action(ob)
+        ac = ac[0] # Wir brauchen meist nur das erste Element des Ergebnisses
 
-        # TODO: take that action and get reward and next ob
-        next_ob, rew, done, _, _ =
+        # DONE: take that action and get reward and next ob
+        next_ob, rew, done, truncated, _ = env.step(ac)
 
-        # TODO rollout can end due to done, or due to max_path_length
+        # DONE: rollout can end due to done, or due to max_path_length
         steps += 1
-        rollout_done =   # HINT: this is either 0 or 1
+        # Ein Rollout endet, wenn 'done' oder 'truncated' True ist,
+        # oder wenn wir die maximale Länge erreicht haben.
+        rollout_done = 1 if (done or truncated or steps >= max_path_length) else 0
 
         # record result of taking that action
         obs.append(ob)
