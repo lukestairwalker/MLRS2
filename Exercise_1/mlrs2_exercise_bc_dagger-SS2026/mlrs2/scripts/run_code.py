@@ -5,21 +5,20 @@ Functions to edit:
     1. run_training_loop
 """
 
-import pickle
 import os
+import pickle
 import time
-import gymnasium as gym
-from tqdm import trange
 
+import gymnasium as gym
 import numpy as np
 import torch
-
 from mlrs2.infrastructure import pytorch_util as ptu
 from mlrs2.infrastructure import utils
 from mlrs2.infrastructure.logger import Logger
 from mlrs2.infrastructure.replay_buffer import ReplayBuffer
-from mlrs2.policies.MLP_policy import MLPPolicySL
 from mlrs2.policies.loaded_gaussian_policy import LoadedGaussianPolicy
+from mlrs2.policies.MLP_policy import MLPPolicySL
+from tqdm import trange
 
 # how many rollouts to save as videos to tensorboard
 MAX_NVIDEO = 2
@@ -160,13 +159,17 @@ def run_training_loop(params):
         print('\nTraining agent using sampled data from replay buffer...')
         training_logs = []
         for _ in trange(params['num_agent_train_steps_per_iter'], desc="Training steps"):
-            # TODO: sample some data from replay_buffer
+            # DONE: sample some data from replay_buffer
             # HINT1: how much data = params['train_batch_size']
             # HINT2: use np.random.permutation to sample random indices
             # HINT3: return corresponding data points from each array (i.e., not different indices from each array)
             # for imitation learning, we only need observations and actions.
-            ob_batch =
-            ac_batch =
+            # DONE: sample some data from replay_buffer
+            indices = np.random.permutation(len(replay_buffer))[:params['train_batch_size']]
+
+            # extract the data
+            ob_batch = replay_buffer.obs[indices]
+            ac_batch = replay_buffer.acs[indices]
 
             # use the sampled data to train an agent
             train_log = actor.update(ob_batch, ac_batch)
